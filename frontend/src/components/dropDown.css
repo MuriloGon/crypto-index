@@ -1,0 +1,17 @@
+.custom-select {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 16px;
+}
+
+.custom-select label {
+  font-size: 18px;
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.custom-select select {
+  padding: 4px;
+  font-size: inherit;
+
+}
