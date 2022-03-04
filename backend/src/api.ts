@@ -1,4 +1,5 @@
 import express, {Router} from 'express';
+import cors from 'cors';
 import loginSubroute from './routes/login';
 import cryptoSubrouter from './routes/crypto';
 
@@ -6,6 +7,7 @@ const app = express();
 const api = Router();
 
 /* App middlewares */
+app.use(cors());
 app.use(express.json());
 app.use('/api', api);
 
