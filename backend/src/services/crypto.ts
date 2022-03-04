@@ -23,3 +23,13 @@ export function setCurrency(
   return newData;
 }
 
+export async function saveCurrency(
+    path: string, data: LocalCurrencies,
+): Promise<boolean> {
+  try {
+    await writeFile(path, JSON.stringify(data));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
