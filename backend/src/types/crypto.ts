@@ -1,5 +1,5 @@
 
-type Currency = {
+export type Currency = {
   code: string;
   rate: string;
   description: string;

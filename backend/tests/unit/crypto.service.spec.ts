@@ -4,6 +4,7 @@ import {
   getLocalCurrencies,
   setCurrency,
   saveCurrency,
+  createCustomCurrencies,
 } from '../../src/services/crypto';
 
 
@@ -65,5 +66,44 @@ describe('Unit - Crypto - Service - saveCurrency function', () => {
 
     const currencies2 = await getLocalCurrencies('/tmp/test.json');
     expect(currencies2).to.be.deep.eq(newData);
+  });
+});
+
+describe('Unit - Crypto - Service - createCustomCurrencies function', () => {
+  const localCurrencies = {
+    'BRL': '5',
+    'EUR': '6',
+    'CAD': '7',
+  };
+  const USDCurrency = {
+    code: 'USD',
+    rate: '10000',
+    description: 'dollar',
+    rate_float: 10000,
+  };
+
+  it('createCustomCurrencies', async () => {
+    const received = await createCustomCurrencies(localCurrencies, USDCurrency);
+    const expected = {
+      BRL: {
+        code: 'BRL',
+        rate: '50,000',
+        description: 'Brazilian Real',
+        rate_float: 50000,
+      },
+      EUR: {
+        code: 'EUR',
+        rate: '60,000',
+        description: 'Euro',
+        rate_float: 60000,
+      },
+      CAD: {
+        code: 'CAD',
+        rate: '70,000',
+        description: 'Canadian Dollar',
+        rate_float: 70000,
+      },
+    };
+    expect(received).to.be.deep.eq(expected);
   });
 });
