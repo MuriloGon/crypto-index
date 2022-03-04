@@ -1,5 +1,5 @@
 import {readFile, writeFile} from 'fs/promises';
-import {LocalCurrencies} from '../types/crypto';
+import {Currency, LocalCurrencies} from '../types/crypto';
 
 export async function getLocalCurrencies(path: string) {
   try {
@@ -32,4 +32,27 @@ export async function saveCurrency(
   } catch (error) {
     return false;
   }
+}
+
+export async function createCustomCurrencies(
+    localCurrencies: LocalCurrencies,
+    USDCurrency: Currency,
+) {
+  const transformedCurrency = (code: 'BRL'|'CAD'|'EUR') => (
+    Number(localCurrencies[code]) * USDCurrency.rate_float
+  );
+
+  const createCurrency = (
+      code: 'BRL'|'CAD'|'EUR', description: string): Currency => ({
+    code,
+    rate: transformedCurrency(code).toLocaleString('en'),
+    description,
+    rate_float: transformedCurrency(code),
+  });
+
+  return {
+    BRL: createCurrency('BRL', 'Brazilian Real'),
+    EUR: createCurrency('EUR', 'Euro'),
+    CAD: createCurrency('CAD', 'Canadian Dollar'),
+  };
 }
