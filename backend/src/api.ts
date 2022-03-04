@@ -1,6 +1,6 @@
 import express, {Router} from 'express';
-import loginController from './controllers/login';
-import cryptoController from './controllers/crypto';
+import loginSubroute from './routes/login';
+import cryptoSubrouter from './routes/crypto';
 
 const app = express();
 const api = Router();
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/api', api);
 
 /* Api endpoints */
-api.use('/login', loginController);
-api.use('/crypto', cryptoController);
+api.use('/login', loginSubroute);
+api.use('/crypto', cryptoSubrouter);
 
 export default app;
