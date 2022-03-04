@@ -13,4 +13,7 @@ app.use('/api', api);
 api.use('/login', loginSubroute);
 api.use('/crypto', cryptoSubrouter);
 
+api.use((_req, res) => res
+    .status(404).json({message: 'Endpoint não encontrado'}));
+
 export default app;
