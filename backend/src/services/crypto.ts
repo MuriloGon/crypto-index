@@ -72,3 +72,16 @@ export async function getCustomCurrenciesRates(path: string) {
   output.bpi = {...output.bpi, ...customCurrencies};
   return output;
 }
+
+export async function updateLocalCurrency(
+    code: 'BRL'|'CAD'|'EUR', value: number, path: string,
+) {
+  const localCurrencies = await getLocalCurrencies(path);
+  if (localCurrencies=== null) return null;
+
+  const newLocalCurrencies = setCurrency(code, value, localCurrencies);
+  if (newLocalCurrencies === null) return null;
+
+  const result = await saveCurrency(path, newLocalCurrencies);
+  return result;
+}
