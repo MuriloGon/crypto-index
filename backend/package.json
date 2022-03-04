@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "tsc && node dist",
+    "dev":"ts-node src",
     "test": "mocha --require ts-node/register tests/**/*.spec.ts",
     "lint": "eslint --ext .ts src"
   },
