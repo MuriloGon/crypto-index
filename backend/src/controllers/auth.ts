@@ -1,7 +1,15 @@
-import {Router} from 'express';
+import {Request, Response} from 'express';
+import {LoginRequestBody} from '../types/auth';
+import * as loginService from '../services/login';
+import {ErrorResponse} from '../utils/errorsResponse';
 
-const router = Router();
+type LoginReq = Request<{}, {}, LoginRequestBody>;
 
-router.post('/', (req, res)=>res.json({message: 'login'}));
+export async function login(req: LoginReq, res: Response) {
+  const token = await loginService.login(req.body);
+  if (token === null) {
+    return res.status(400).json(ErrorResponse('Campos inválidos'));
+  };
 
-export default router;
+  return res.json({token});
+}
