@@ -1,6 +1,16 @@
 import {readFile, writeFile} from 'fs/promises';
 import {LocalCurrencies} from '../types/crypto';
 
+export async function getLocalCurrencies(path: string) {
+  try {
+    const currencies: LocalCurrencies = JSON.parse(
+        await readFile(path, {encoding: 'utf8'}),
+    );
+    return currencies;
+  } catch (error) {
+    return null;
+  }
+}
 
 export function setCurrency(
     currencyCode: string, value:number, data: LocalCurrencies,
