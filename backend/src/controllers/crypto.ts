@@ -2,11 +2,9 @@ import {Request, Response} from 'express';
 import * as cryptoService from '../services/crypto';
 import {ErrorResponse} from '../utils/errorsResponse';
 
-const currenciesPath = process.env.CURRENCIES_PATH || 'data/currencies.json';
-
 export async function getBtcCurrencies(req: Request, res: Response) {
   const customCurrenciesRate = await cryptoService.getCustomCurrenciesRates(
-      currenciesPath,
+      process.env.CURRENCIES_PATH as string,
   );
 
   if (customCurrenciesRate === null) {
@@ -21,7 +19,7 @@ export async function updateLocalCurrency(req: Request, res: Response) {
   const updateResponse = cryptoService.updateLocalCurrency(
       code,
       value,
-      currenciesPath,
+      process.env.CURRENCIES_PATH as string,
   );
 
   if (updateResponse === null) {
