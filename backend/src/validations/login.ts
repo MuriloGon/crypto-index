@@ -1,5 +1,5 @@
 import joi from 'joi';
-import {LoginRequestBody} from '../types/login';
+import {LoginRequestBody} from '../types/auth';
 
 export const loginBody = joi.object<LoginRequestBody>({
   email: joi.string().email({}).required(),
