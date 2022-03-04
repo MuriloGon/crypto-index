@@ -14,3 +14,4 @@ plugins:
   - '@typescript-eslint'
 rules:
   new-cap: off
+  require-jsdoc: off
