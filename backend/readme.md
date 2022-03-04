@@ -26,7 +26,7 @@ npm test
 ## Env variables
 
 ```bash
-PORT=3000
+PORT=4040
 CURRENCIES_PATH=data/currencies.json
 
 # For convenience, environment variables are declared in ".dotenv". Approach not recommended in production environment.
