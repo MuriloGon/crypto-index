@@ -1,4 +1,5 @@
 import {readFile, writeFile} from 'fs/promises';
+import {fetchCurrencyPrices} from '../models/crypto';
 import {Currency, LocalCurrencies} from '../types/crypto';
 
 export async function getLocalCurrencies(path: string) {
@@ -55,4 +56,19 @@ export async function createCustomCurrencies(
     EUR: createCurrency('EUR', 'Euro'),
     CAD: createCurrency('CAD', 'Canadian Dollar'),
   };
+}
+
+export async function getCustomCurrenciesRates(path: string) {
+  const currencyRates = await getLocalCurrencies(path);
+  if (currencyRates === null) return null;
+  const currenciesPrices = await fetchCurrencyPrices();
+
+
+  const customCurrencies = await createCustomCurrencies(
+      currencyRates, currenciesPrices.bpi.USD,
+  );
+
+  const output = currenciesPrices;
+  output.bpi = {...output.bpi, ...customCurrencies};
+  return output;
 }

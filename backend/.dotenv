@@ -1,0 +1,2 @@
+CURRENCIES_PATH=data/currencies.json
+PORT=3000
