@@ -1,0 +1,19 @@
+.price-labeled {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.price-labeled h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.price-labeled p {
+  font-size: 18px;
+  margin: 0;
+  background-color: #C4C4C4;
+  width: fit-content;
+  padding: 6px;
+}

@@ -1,0 +1,17 @@
+.input-label {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 16px;
+}
+
+.input-label label {
+  font-size: 18px;
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.input-label input {
+  padding: 4px;
+  font-size: inherit;
+
+}
