@@ -1,12 +1,18 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Login from './pages/login';
+import UpdatePrice from './pages/updatePrice';
 
 function App() {
   return (
-   <Routes>
-     <Route path='/login' element={<h1>Login</h1>} />
-     <Route path='/' element={<h1>Root</h1>} />
-   </Routes>
+    <main className='main-container'>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/update-price' element={<UpdatePrice />} />
+      </Routes>
+    </main>
   );
 }
 
