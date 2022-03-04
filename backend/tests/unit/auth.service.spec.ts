@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import {expect} from 'chai';
 import {generateToken, login} from '../../src/services/login';
 
-describe('Auth service - generateToken function', () => {
+describe('Unit - Auth - Service - generateToken function', () => {
   it('returns a 16 characters and number token by default', async () => {
     const received = generateToken();
     expect(received).to.have.length(16);
@@ -22,7 +22,7 @@ describe('Auth service - generateToken function', () => {
   });
 });
 
-describe('Auth service - login function', () => {
+describe('Unit - Auth - Service - login function', () => {
   it('returns null when email is invalid', async () => {
     const mockData = {email: 'email@emailcom', password: '123456'};
     const received = await login(mockData);
