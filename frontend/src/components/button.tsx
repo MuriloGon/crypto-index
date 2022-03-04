@@ -1,10 +1,13 @@
 import React from "react";
+import './button.css'
 
-function Button() {
+type props = {text: string, onClick: () => any, color: 'primary'|'secondary'}
+
+function Button({text, onClick, color}: props) {
   return (
-    <div>
-      Button
-    </div>
+    <button className={`custom-button ${color}`} onClick={onClick}>
+      {text}
+    </button>
   )
 }
 

@@ -1,0 +1,15 @@
+.custom-button {
+  border: none;
+  padding: 5px 10px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.primary {
+  background-color: #5FE122;
+}
+
+.secondary {
+  background-color: #C4C4C4;
+}

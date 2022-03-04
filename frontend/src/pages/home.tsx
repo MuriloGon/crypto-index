@@ -1,9 +1,10 @@
 import React from "react";
+import Button from "../components/button";
 
 function Home() {
   return (
     <div>
-      Home
+      <Button text="Teste" color="primary" onClick={() => {}} />
     </div>
   )
 }
