@@ -1,3 +1,7 @@
-console.log('test');
+import api from './api';
 
-export const x = () => 10;
+const PORT = process.env.PORT || 3000;
+
+api.listen(PORT, () => {
+  console.log(`Listening port ${PORT}`);
+});
