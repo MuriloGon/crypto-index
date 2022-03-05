@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Login from './pages/login';
 import UpdatePrice from './pages/updatePrice';
+import './App.css';
 
 function App() {
   return (
