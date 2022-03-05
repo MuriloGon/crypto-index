@@ -62,7 +62,7 @@ export async function getCustomCurrenciesRates(path: string) {
   const currencyRates = await getLocalCurrencies(path);
   if (currencyRates === null) return null;
   const currenciesPrices = await fetchCurrencyPrices();
-
+  if (currenciesPrices === undefined) return null;
 
   const customCurrencies = await createCustomCurrencies(
       currencyRates, currenciesPrices.bpi.USD,
