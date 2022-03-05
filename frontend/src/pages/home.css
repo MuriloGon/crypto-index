@@ -1,0 +1,19 @@
+.home-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.home-container button {
+  max-width: fit-content;
+}
+.currencies-prices {
+  margin-top: 40px;
+}
+
+.currencies-others {
+  display: flex;
+}
+.currencies-others > * {
+  margin: 0 10px;
+}
