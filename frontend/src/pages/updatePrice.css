@@ -1,0 +1,12 @@
+.current-value {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.current-value .Label {
+  font-weight: 700;
+}
+
+.update-price-content button {
+  margin: 40px 0;
+}
